@@ -1,0 +1,66 @@
+Stacks and Queues -
+
+A stack uses LIFO (Last In First Out) ordering. The real world example would be a stack
+of dinner plates, where the newest item added is also the first item to be removed.
+
+Stack Data Structure -
+
+Listed below is the sample code to implement a stack. We can also implement it with a
+linked list, which is basically the same thing as we always remove the item that is
+at the back of the list.
+
+Class Stack {
+	
+	Node top;
+	
+	Object pop() {
+		if (top != null) {
+			Object item = top.data;
+			top = top.next;
+			return item;
+		}
+		return null;
+	}
+	
+	void push (Object item) {
+		Node t = new Node(item);
+		t.next = top;
+		top = t;
+	}
+	
+	Object peek() {
+		return top.data;
+	}
+}
+
+Implementing a Queue -
+
+A queue uses a FIFO (First-in First-out) ordering. The real world example here would be a line
+or a queue at a ticket office. Items that are placed in the queue first are the first items
+out of the queue. Again a queue can be implemented with a linked list, where we remove the
+items from it from the head of the list rather than the tail as we do in a stack.
+
+Class Queue {
+	
+	Node first, last;
+	
+	void enqueue(Object item) {
+		if (first == null) {
+			last = new Node(item);
+			first = last;
+		}
+		else {
+			last.next = new Node(item);
+			last = last.next;
+		}
+	}
+	
+	Object dequeue() {
+		if (first != null) {
+			Object item = first.data;
+			first = first.next;
+			return item;
+		}
+		return null;
+	}
+}
