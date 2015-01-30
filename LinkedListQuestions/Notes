@@ -1,0 +1,15 @@
+Linked List Notes -
+
+1. All recursive algorithms take at least O(n) space, where n is the depth of the 
+   recursive call. The reason for this is because there is a need to put the previous
+   recursive state onto a stack so that it can continue once it has hit the base case
+   and goes back to the top.
+   
+2. The "Runner Technique" or using a second pointer, means that you iterate through the linked
+   list with two points at the same time, with one ahead of the other. An example of this would
+   be the "Rabbit and Hare" algorithm to find the midpoint of a singly linked list, one pointer
+   jumps one and the other jumps two, when the second pointer jumping two reaches the end, the  
+   first pointer will be at the midpoint.
+   
+3. When iterating through a linked list remember to check the next node for null so that we don't
+   search further than we have to.
