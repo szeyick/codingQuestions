@@ -1,0 +1,48 @@
+Tree Balancing
+
+A non-empty tree is considered balanced if it meets all of the following criteria:
+
+1. Its left subtree is balanced.
+2. Its right subtree is balanced
+3. The difference in height between the left subtree and right subtree is no more than 1.
+
+An empty tree is considered balanced.
+
+The idea is to traverse through the tree and at each level find whether the three balancing
+criteria are fulfilled.
+
+Algorithm - 
+
+The basic algorithm to determine if a tree is balanced has two main methods isBalanced() and height().
+
+isBalanced(Node currentNode) - (Recursive)
+
+- This method is the main driver of traversing through the tree.
+- This method takes in the current node that we want to check whether it is balanced or not.
+
+Steps -
+
+1. The base case for this method is when we have reached an empty node (empty tree). If we reach the 
+   base case, it means that we have no more nodes to traverse in our tree as the subtree is now empty.
+  
+2. If the tree is not empty, we need to find the height of its left and right subtree's, we do this by
+   calling the height method on both subtrees.
+   
+3. Once we have the height of the subtrees from the current node, we need to see if the difference in height
+   is less than 1. If this condition satisfies, we then need to check the current nodes left and right nodes
+   to ensure that they're balanced as well, we do this by calling isBalanced(...) again on both the current
+   nodes children.
+   
+height(Node currentNode) - (Recursive)
+
+- This method determines the height of a subtree.
+- This method measures the longest path from the root of the tree to a leaf.
+
+Steps -
+
+1. The base case for this method is when we've reached an empty node (empty tree). If we reach the base
+   case, it means that we have reached the end of the tree and cannot recursively go further.
+   
+2. If the tree is not empty, we add 1 to the height, and then traverse to its children by calling the height
+   method again on its children. We wrap these calls in a max(...) function, which returns the greater height
+   of either the left or right subtree.    
