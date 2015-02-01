@@ -15,6 +15,9 @@ Algorithm -
 
 The basic algorithm to determine if a tree is balanced has two main methods isBalanced() and height().
 
+This algorithm presents a worst case O(n^2) solution if we have a tree where all the nodes are on one side
+like a linked list.
+
 isBalanced(Node currentNode) - (Recursive)
 
 - This method is the main driver of traversing through the tree.
@@ -45,4 +48,9 @@ Steps -
    
 2. If the tree is not empty, we add 1 to the height, and then traverse to its children by calling the height
    method again on its children. We wrap these calls in a max(...) function, which returns the greater height
-   of either the left or right subtree.    
+   of either the left or right subtree.   
+   
+Optimisation -
+
+We can optimise the algorithm further by counting and maintaining the height of the tree as we go along the
+isBalanced(...) method.    
