@@ -1,0 +1,101 @@
+Trees and Graphs
+
+Potential Issues -
+
+Interview questions relating to trees and graphs are usually filled with ambiguous details and incorrect assumptions.
+
+Binary Tree vs. Binary Search Tree -
+
+Clarify during an interview whether the tree is a binary tree or a binary search tree. The difference being that in a
+binary search tree, all the left children are less than or equal to the current node, and the current node is
+less than all the right nodes.
+
+Balanced vs. Unbalanced -
+
+Trees can be balanced and unbalanced. In general, the algorithm should be described in terms of average and best case time. A
+balanced tree is where the height of the subtrees do not differ by more than a certain amount.
+
+Full and Complete Tree -
+
+These trees are where all the leaves are at the bottom of the tree, and all non-leaf nodes have exactly two children. For this
+condition to be met, a tree must have exactly 2^n - 1 nodes, which is extremely rare in the real world.
+
+Binary Tree Traversal -
+
+There are three types of binary tree traversal, pre-order, in-order and post-order and are described as follows:
+
+- Pre-order traveral is when we visit the current node first, followed by its left child and then right.
+- In-order traveral is when we visit the left child first, followed by the current node and then its right child.
+- Post-order traveral is when we visit the left child first, then its right child and finally the current node.
+
+Tree Balancing -
+
+It is usually not asked during an interview, however it is important to know how it works, especially how to determine if
+a tree is balanced or not.
+
+Tries -
+
+A trie is a n-ary tree, where we store characters at each node. The path down a tree may represent a word.
+
+Graph Traversal -
+
+Comprises of Breadth First Search (BFS) and Depth First Search (DFS).
+
+- Depth First Search:
+
+In a DFS, we visit a node r and then search through each of its adjacent nodes. When visiting an adjacent node n, we visit all of
+n's adjacent nodes before we go back to searching through r's other adjacent nodes. In other words, we see how deep or far we can
+go from the node r down one path (its adjacent node) before we cannot go further and need to turn back and choose another 
+path (adjacent node.
+
+When we implement a DFS, when visiting an adjacent node, we must first check to see if we have already visited it. If we have then
+we do not want to select that node again for visiting otherwise we can get into an infinite loop. 
+
+To ensure that we visit all adjacent nodes of a node r, we put all its neighbours onto a stack. This ensures that we search through
+all the adjacent nodes first. If we use recursion to implement the DFS, it naturally provides a stack meaning we don't need to
+maintain one.
+
+The pseudocode for DFS is like this -
+
+void search(Node currentNode) {
+	if (currentNode == null) {
+		return; // We have reached the end and our graph is empty
+	}
+	visit(currentNode); // Visit the current node and perform an operation.
+	currentNode.visited = true; // Mark the node as visited as we do not want to go there again.
+	foreach(Node adjacentNode : currentNode.getAdjacentNodes) {
+		if(adjacentNode.visited == false) { // If an adjacent node has not been visited then we can go there.
+			search(adjacentNode); 
+		}
+	} 
+}
+
+- Breadth First Search (BFS)
+
+In BFS, we visit each nodes direct adjacent nodes before searching any of the adjacent nodes grandchildren. The key thing to 
+take away from a BFS is that we store all the nodes that we want to visit in a queue. By using a queue, we ensure that we
+visit all of a nodes direct children first as we determine the next node to visit as the first item in the queue.
+
+An iterative solution generally works better for BFS  -
+
+void search(Node root) {
+	Queue queue = new Queue(); // This queue will maintain the adjacent nodes that we need to visit.
+	root.visited = true; // Mark the current node as visited.
+	
+	visit(root); // Visit the current node and perform operations on it.
+	queue.enqueue(root); // Add the visited node to the queue, we need to visit its neighbours.
+	
+	// Main driver of the BFS is this loop. Each node we visit gets added to this queue, we then check all its direct
+	// neighbours to see if they need to be visited, only if they not been visited do we then add it to the queue.
+	while (!queue.isEmpty()) {
+		Node currentNode = queue.deQueue(); // Dequeue the item at the front of the queue.
+		foreach(Node adjacentNode : currentNode.getAdajcentNodes) {
+			if (adjacentNode.visited == false) {
+				// If we haven't visited this node then add it to the queue to be visited.
+				visit(currentNode); // Do some operation with the node.
+				adjacentNode.visited = true;
+				queue.enqueue(currentNode);
+			}
+		}
+	}
+}
