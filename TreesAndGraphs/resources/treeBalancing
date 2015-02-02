@@ -52,5 +52,26 @@ Steps -
    
 Optimisation -
 
-We can optimise the algorithm further by counting and maintaining the height of the tree as we go along the
-isBalanced(...) method.    
+The algorithm can be optimised if we use the height() method to check to see if the tree is balanced along with
+its height. If the tree is unbalanced we just return -1 rather than the actual height.
+
+We can implement an additional method checkHeight(...) which takes the current subtree and checks the height
+recursively. If the tree is balanced checkHeight(...) will return the actual height, otherwise it'll return -1.
+
+The checkHeight(...) method will take over from the height() method.
+
+checkHeight(Node currentNode) - (Recursive)
+     
+Steps -
+
+1. The base case for this method as with all tree recursion methods will be when we've reached an empty node.
+
+2. If the tree is not empty, we can checkHeight(currentNode.left) to return the height of the left subtree.
+
+3. We then call checkHeight(currentNode.right) to return the height of the right subtree.
+
+4. After that, we compare the height of the left and right subtrees, if it is unbalanced we return -1 otherwise
+   we return the actual height.
+   
+5. In the isBalanced(...) method, we call checkHeight, if the height returned is -1 then we immediately break out
+   and return false to show that the tree is not balanced.
