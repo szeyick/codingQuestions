@@ -1,5 +1,7 @@
 package com.crackingTheCodingInterview.treesAndGraphs;
 
+import com.crackingTheCodingInterview.treesAndGraphs.graph.Graph;
+
 /**
  * The {@link DirectedGraph}
  * <p>
@@ -23,6 +25,27 @@ public class DirectedGraph {
 	 * @param args - Command line arguments.
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Graph directedGraph = constructGraph();
+		directedGraph.printGraph();
+		
+		System.out.println("Is there a path between node 0 and 2 - " + directedGraph.searchBFS(0, 2));
+		System.out.println("Is there a path between node 3 and 2 - " + directedGraph.searchBFS(3, 2));
+		System.out.println("Is there a path between node 0 and 7 - " + directedGraph.searchBFS(0, 7));
+		System.out.println("Is there a path between node 7 and 8 - " + directedGraph.searchBFS(7, 8));
+		System.out.println("Is there a path between node 8 and 7 - " + directedGraph.searchBFS(8, 7));
+		System.out.println("Is there a path between node 1 and 1 - " + directedGraph.searchBFS(1, 1));
+	}
+	
+	/**
+	 * @return - A constructed graph of 4 nodes in a square.
+	 */
+	private static Graph constructGraph() {
+		Graph graph = new Graph(10);
+		graph.addNodeToGraph(0, 1);
+		graph.addNodeToGraph(0, 3);
+		graph.addNodeToGraph(1, 2);
+		graph.addNodeToGraph(2, 3);
+		graph.addNodeToGraph(7, 8);
+		return graph;
 	}
 }
