@@ -1,5 +1,6 @@
 package com.crackingTheCodingInterview.treesAndGraphs.graph;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -146,6 +147,49 @@ public class Graph {
 			}
 		}
 		return pathExists;
+	}
+
+	/**
+	 * Use a DFS to determine if a path exists between two nodes.
+	 * @param startNode - The node to begin.
+	 * @param targetNode - The target or destination.
+	 * @return <code>true</code> if there is a path between the start
+	 * and target, <code>false</code> otherwise.
+	 */
+	public boolean searchDFS(int startNode, int targetNode) {
+		if (graph[startNode] == null || graph[targetNode] == null) {
+			return false;
+		}
+		return dfs(startNode, targetNode, new ArrayList<Integer>());
+	}
+	
+	/**
+	 * Use a DFS to find the target node. The DFS uses recursion which 
+	 * maintains a natural stack to determine the next node to visit.
+	 * @param currentNode - The current node we're searching.
+	 * @param targetNode - The target node to find.
+	 * @return <code>true</code> if we can find the target node, 
+	 * <code>false</code> otherwise.
+	 */
+	private boolean dfs(Integer currentNode, Integer targetNode, List<Integer> visited) {
+		// Base case - if the current node is null we return.
+		GraphNode currNode = graph[currentNode];
+		if (currNode == null) {
+			return false;
+		}
+		if (reachedDestination(graph[currentNode], graph[targetNode])) {
+			return true;
+		}
+		// Mark the current node as visited.
+		visited.add(currNode.value);
+		GraphNode adjacentNode = currNode.next;
+		while (adjacentNode != null) {
+			if (!visited.contains(adjacentNode.value)) {
+				return dfs(adjacentNode.value, targetNode, visited);
+			}
+			adjacentNode = adjacentNode.next;
+		}
+		return false;
 	}
 	
 	/**

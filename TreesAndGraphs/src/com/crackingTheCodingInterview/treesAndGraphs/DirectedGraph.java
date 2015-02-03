@@ -28,12 +28,22 @@ public class DirectedGraph {
 		Graph directedGraph = constructGraph();
 		directedGraph.printGraph();
 		
+		System.out.println("Searching using BFS - ");
 		System.out.println("Is there a path between node 0 and 2 - " + directedGraph.searchBFS(0, 2));
 		System.out.println("Is there a path between node 3 and 2 - " + directedGraph.searchBFS(3, 2));
 		System.out.println("Is there a path between node 0 and 7 - " + directedGraph.searchBFS(0, 7));
 		System.out.println("Is there a path between node 7 and 8 - " + directedGraph.searchBFS(7, 8));
 		System.out.println("Is there a path between node 8 and 7 - " + directedGraph.searchBFS(8, 7));
 		System.out.println("Is there a path between node 1 and 1 - " + directedGraph.searchBFS(1, 1));
+		
+		System.out.println();
+		System.out.println("Searching using DFS - ");
+		System.out.println("Is there a path between node 0 and 2 - " + directedGraph.searchDFS(0, 1));
+		System.out.println("Is there a path between node 3 and 2 - " + directedGraph.searchDFS(3, 2));
+		System.out.println("Is there a path between node 0 and 7 - " + directedGraph.searchDFS(0, 7));
+		System.out.println("Is there a path between node 7 and 8 - " + directedGraph.searchDFS(7, 8));
+		System.out.println("Is there a path between node 8 and 7 - " + directedGraph.searchDFS(8, 7));
+		System.out.println("Is there a path between node 1 and 1 - " + directedGraph.searchDFS(1, 1));
 	}
 	
 	/**
