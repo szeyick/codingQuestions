@@ -1,0 +1,36 @@
+Binary Search Tree
+
+Creating a binary search tree with an ordered array will create a skewed tree, where all nodes will be to the right
+of it's parent. 
+
+This in a way defeats the purpose of a binary search tree since all searches on it will be of O(n) rather than the usual
+average case of O(logn) since the input will not divide in half at each step.
+
+To ensure that we have a minimal height in our BST, we need to ensure that the root node of each subtree is at least a
+middle element in the array.
+
+For example if we had the array - [1][2][3], we would expect our root node to be [2] where [1] will then be its left child
+and [3] its right child. To do this, we need to use recursion, where at each step we need to find the middle of the sub-array
+which will be the children of the parent node.
+
+So we should have the following pseudocode -
+
+createTree(array[], int leftIndex, int rightIndex) {
+  // Base case - when the left index exceeds the right.
+  if (leftIndex > rightIndex) {
+  	return null; 
+  }
+  createNode(middleIndex)
+  node.leftChild = createTree(array[], leftIndex, middleIndex-1);
+  node.rightChild = createTree(array[], middleIndex+1, rightIndex);
+  
+  return node; 
+} 
+
+The main thing to take away here is that at each step we want to insert the middle value into the tree. The runtime for this method
+will be O(n) as you do not need to recurse through the tree at each insertion.
+
+In addition, to find the middle index it is the same as a merge sort middle where it is (low + high) / 2.
+
+A small trick to note when using recursion on binary trees is to use the base cases of 1 node and 3 nodes (left child, node, right child)
+Usually if the algorithm works on that setup, then it should be fine for larger trees.
