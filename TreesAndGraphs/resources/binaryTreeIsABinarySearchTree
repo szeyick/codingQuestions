@@ -1,0 +1,71 @@
+Whether a binary tree is a binary search tree.
+
+A binary tree is a tree where each node has two children, a left and right child. 
+
+A binary search tree follows the same structure, however the values in the nodes are governed by the condition 
+that all children in its left subtree must be smaller, and all children in the right subtree must be larger.
+
+To determine if a binary tree is a binary search tree, we need to ensure that our binary tree follows
+those same conditions.
+
+General conditions -
+
+- A binary tree is a binary search tree is there are no nodes.
+- A binary tree is a binary search tree if there is 1 node.
+- A binary tree is a binary search tree if its children meet the following conditions :
+		- All nodes in its left subtree are smaller than the value in the root.
+		- All nodes in its right subtree are larger than the value in the root.
+		
+To implement an algorithm to test this, we need to implement these conditions. As this deals with trees a going 
+through all its nodes, it will be a recursive algorithm.
+
+Solution -
+
+- In the case where a node has children, we need to check the values of its children first, this follows the pattern
+  of a post-order traversal, where we visit the left and right children of a root node before we visit the root node
+  itself.
+  
+- In the case where a node has no children, we have to return a value to designate that it is empty. This is the case
+  when we've reached the end of the recursion, when we reach a leaf node.
+
+- We need to return the values of both the left and right child to the root node to compare against.
+
+- If the left and right values fail the binary search tree conditions, we need to return a value to signify this so that
+  the entire recursion of the tree immediately stops and we return to the user.
+  
+Pseudo Code -
+
+// Recursive method that traverses the binary tree in pre-order.
+int isBinarySearchTree(Node currentNode) {
+	if (treeIsNotEmpty) {
+		leftValue = isBinarySearchTree(currentNode.left)
+		rightValue = isBinarySearchTree(currentNode.right)
+		
+		// Terminating condition if tree is not a BST.
+		// -1 is the value we've designated to state that the
+		// binary tree is NOT a BST.
+		if (leftValue || rightValue is -1) {
+			return -1;
+		}
+		
+		// Evaluate to see if the tree fulfills the BST condition.
+		// Test that the left value is greater than the current value.
+		// Test that the right value is less than the current value.
+		if (leftValue > currentNode.value || rightValue < currentNode.value) {
+			// Return immediately if we fail the BST conditions.
+			return -1; 
+		}
+		// Otherwise return the largest value that we have found (left, current, right).
+		// Whether it is the left or right subtree, returning the largest value up to its
+		// parent will allow it to compare correctly on the BST conditions.
+		return Max(left, current, right);
+	}
+	return 0; // 0 denotes that we've reached the leaf.
+}
+
+Runtime - 
+
+The runtime complexity of this solution will be worst case O(n) since you would need to traverse
+the entire tree if it is a BST. We do the comparisons within the recursion we there are no additional
+loops required.
+         
