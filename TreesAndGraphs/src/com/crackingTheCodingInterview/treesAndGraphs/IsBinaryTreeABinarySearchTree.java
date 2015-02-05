@@ -33,9 +33,13 @@ public class IsBinaryTreeABinarySearchTree {
 	public static void main(String[] args) {
 		Node binaryTree1 = buildBinaryTree();
 		Node binaryTree2 = buildBinarySearchTree();
+		Node binaryTree3 = buildRandomTree();
+		Node binaryTree4 = buildATree();
 		
 		System.out.println("Is binary tree a BST - " + isBST(binaryTree1));
 		System.out.println("Is binary tree a BST - " + isBST(binaryTree2));
+		System.out.println("Is binary tree a BST - " + isBST(binaryTree3));
+		System.out.println("Is binary tree a BST - " + isBST(binaryTree4));
 	}
 	
 	/**
@@ -115,7 +119,7 @@ public class IsBinaryTreeABinarySearchTree {
 	 * Build a binary search tree.
 	 * @return - The built tree.
 	 */
-	public static Node buildBinarySearchTree() {
+	private static Node buildBinarySearchTree() {
 		Node root = createNode(5);
 		root.leftChild = createNode(2);
 		root.rightChild = createNode(6);
@@ -123,6 +127,36 @@ public class IsBinaryTreeABinarySearchTree {
 		root.leftChild.leftChild = createNode(1);
 		root.leftChild.rightChild = createNode(4);
 		root.leftChild.rightChild.leftChild = createNode(3);
+		
+		return root;
+	}
+	
+	/**
+	 * Build a binary search tree.
+	 * @return - The built tree.
+	 */
+	public static Node buildRandomTree() {
+		Node root = createNode(20);
+		root.leftChild = createNode(10);
+		root.rightChild = createNode(30);
+		root.leftChild.leftChild = createNode(5);
+		root.leftChild.leftChild.rightChild = createNode(7);
+		root.leftChild.leftChild.leftChild = createNode(3);
+		root.leftChild.rightChild = createNode(15);
+		root.leftChild.rightChild.rightChild = createNode(17);
+		
+		return root;
+	}
+	
+	/**
+	 * Build a binary search tree.
+	 * @return - The built tree.
+	 */
+	public static Node buildATree() {
+		Node root = createNode(20);
+		root.leftChild = createNode(10);
+		root.rightChild = createNode(30);
+		root.leftChild.rightChild = createNode(25);
 		
 		return root;
 	}
