@@ -14,6 +14,12 @@ package com.crackingTheCodingInterview.treesAndGraphs;
  * is the right child, its "next" will be the smallest child
  * of its grandparent. 
  * <p>
+ * The inorder successor of a left child is its parent. <br>
+ * The inorder successor of a right child, if it is on the right of its
+ * grand parent will be the smallest value in its right child.
+ * The inorder success of a right child, if it is on the left side of its
+ * grandparent will be the smallest value in its grandparents right child.
+ * <p>
  * @author szeyick
  */
 public class InOrderSuccessor {
