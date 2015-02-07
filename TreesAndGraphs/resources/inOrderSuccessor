@@ -1,0 +1,35 @@
+In Order Successor -
+
+When dealing with binary search trees, finding the in-order successor means to find the next largest number. This 
+is similar to when traversing a binary search tree in order.
+
+There are a few cases to consider -
+
+1. Node has no children and is a left child of its parent
+
+- In this case, the in-order successor is its parent.
+- In a in-order traversal, this is equivalent to reaching the left most node and we return to its parent.
+
+2. Node has a right child OR has two children.
+
+- In this case, the in-order successor is the smallest (left-most) value in its right child.
+- In a in-order traversal, this is equivalent to performing an in-order traversal with the right child as the
+  root of the tree.
+  
+3. Node has no children and is a right child of its parent
+
+- This case is the most difficult as it can have two results, whether it finds the in-order successor, or it is
+  the largest value.
+  
+- In this case, the in-order successor will be a grand-parent, who's a left node of its parent.
+- In a in-order traversal, this is equivalent to coming out of multiple right side recursions and returning the
+  recursion to its parent.
+  
+- In the case where it has no grand-parent that is a left child of its parent, then we have reached the largest node
+  in the binary search tree.
+  
+In the question, because we have a reference to its parent node, finding a grandparent that is a left-child of its parent
+should be possible.
+
+The runtime of this algorithm is O(n) worst case, the worst case will be when the tree is skewed to the right and the node
+we want to find the successor of is the largest node in the tree.

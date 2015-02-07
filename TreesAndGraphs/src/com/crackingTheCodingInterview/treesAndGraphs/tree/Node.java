@@ -30,6 +30,11 @@ public class Node {
 	public Node rightChild;
 	
 	/**
+	 * A reference to this nodes parent.
+	 */
+	public Node parent;
+	
+	/**
 	 * Constructor.
 	 * @param valueTmp - The value to assign to this
 	 * node.
