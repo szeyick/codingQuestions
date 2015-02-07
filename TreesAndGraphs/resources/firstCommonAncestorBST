@@ -1,0 +1,57 @@
+First Common Ancestor -
+
+The first common ancestor of two nodes in a binary tree is where they branch.
+
+In this question, we need to ask whether it is a binary search tree.
+
+Binary Search Tree -
+
+- In a binary search tree, all left children contain values that are smaller than that of
+  the current node.
+  
+- In a binary search tree, all right children contain values that are larger than that of
+  the current node.
+  
+- In a binary search tree, there are no duplicate values.
+
+If the binary tree we want to find the common ancestors of is a binary search tree we can
+leverage the relationship between the nodes and not require an additional data structure to
+trace the path.
+
+Algorithm -
+
+- The algorithm would be to perform a search of the tree, where we only continue into a subtree
+  if both values are in the same side of the tree. If they are not, then we return the current node
+  since the branching will imply it is the first common ancestor.
+  
+- Before we return the first common ancestor, we would also need to confirm that the values exist in
+  the tree. 
+  
+Pseudocode -
+
+Node findCommonAncestor(Node currentNode, int value1, value2) {
+	// Only continue the traversal if there is a node to go to.
+	if (currentNode != null) {
+		if (value1 or value2 == currentNode.value) {	
+			// If the current node contains either of the values we have
+			// find the common ancestor
+			// To confirm the value exists in the tree. Reuse the method since it is an expanded search.
+			findCommonAncestor(currentNode, value1, value2); 
+			if (both values exist in the subtree) {
+				return currentNode;
+			}
+			return null; // Means that one of the values does not exist in the tree.
+		}
+		
+		// Determine if we go down the left or right side
+		if (value1 && value2 < currentNode.value) {
+			// Go to the left subtree
+			return findCommonAncestor(currentNode.left, value1, value2);
+		}
+		else {
+			// Go to the right subtree.
+			return findCommonAncestor(currentNode.right, value1, value2);
+		}
+	}
+	return null; // We have reached the bottom so return.
+}

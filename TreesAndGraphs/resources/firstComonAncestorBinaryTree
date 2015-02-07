@@ -1,0 +1,19 @@
+First Common Ancestor - Binary Tree
+
+A binary tree is a tree where there are both left children and right children, however the difference between 
+this and a binary search tree is that there is no order in which the nodes are in the tree. Values larger and
+smaller than the current value can exist in either subtree, which makes finding the common ancestor slightly
+more difficult.
+
+Because we do not know where the the values are in the tree, we need to search through the tree to determine if
+the nodes exist in each subtree. We can do a bottom up search (post-order traversal) to pass values in each subtree
+back up. This also stops the subtree being searched each time and we should only be required to search through the
+tree once.
+
+Algorithm -
+
+- Following the post order traversal by searching left, right, then the current node.
+- If the current node contains one of the two valeus we're looking for, we return the current value.
+- If only one of the values is returned by its children, then we return that value. This implies to the
+  parent that only one of its children contains the two values, meaning that the other one is off a branch
+  in one of the parents and we need to search further up.
