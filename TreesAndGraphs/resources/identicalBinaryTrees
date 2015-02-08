@@ -1,0 +1,7 @@
+Identical Binary Trees
+
+A binary tree is identical to another tree if you overlay both trees they will be the same. This means that
+if you traverse both trees they will have the same order.
+
+A BFS on the tree should expand all the nodes from the top down, if the next nodes to visit for both trees are
+the same, then we progress, if they differ then the trees are not the same.
