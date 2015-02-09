@@ -1,7 +1,59 @@
 Identical Binary Trees
 
-A binary tree is identical to another tree if you overlay both trees they will be the same. This means that
-if you traverse both trees they will have the same order.
+A binary tree is identical to another binary tree if you overlap them both, all the nodes from one tree are
+in the exact same spot as those in a second tree.
 
-A BFS on the tree should expand all the nodes from the top down, if the next nodes to visit for both trees are
-the same, then we progress, if they differ then the trees are not the same.
+In this situation we have two trees, T1 and T2. T1 is significantly larger than T2, meaning that there is a possibility that
+the tree T2 is a subtree of T1. The question tells us that the tree T1 is significantly larger than T2 meaning that
+it isn't neccessary to check the size of the tree beforehand.
+
+Algorithm -
+
+1. The first step in the algorithm would be to find the value at the root of T2 in T1. A binary tree presumeably can contain
+   the same value multiple times.
+   
+2. Each time we find the root value of T2 within a T1 node, the found node becomes the search space. The found T1 node becomes
+   the root of the subtree that we compare T2 against.
+   
+3. To compare, we can recurse through both trees by performing a in-order traversal. It is a slightly modified version of the
+   traversal in that we only call the method again if both nodes are non-empty. In addition to this we also need to cater for
+   the scenario's when we reach the bottom of one subtree but not the other. If we reach this case, we need to return false and
+   exit the recursion immediately as it shows that the trees are not the same.
+   
+Pseudocode -
+
+The search method
+
+Node search(Node currentNode, Node nodeToFind) {
+	if (currentNode != null) {
+		Node leftNode = search(currentNode.leftChild, nodeToFind)
+		Node rightChild = search(currentNode.rightChild, nodeToFind)
+		
+		// If the value has been found already, then return it.
+		if (leftNode != null || rightNode != null) {
+			// return the one that is not null.
+		}
+		// Compare the current node value to the one to find.
+		if (currentNode.value == nodeToFind.value) {
+			return currentNode;
+		}
+		else {
+			return null;
+		}
+	}
+	return null; // Hit the bottom of the tree, not found return null.
+} 
+
+boolean isSameTree(Node T1, Node T2) {
+	if (T1 != null && T2 != null) {
+		boolean isLeftSame = isSameTree(T1.leftChild, T2.rightChild);
+		boolean isRightSame = isSameTree(T2.leftChild, T2.rightChild);
+		
+		// If either branch is false, it means the trees are not the same
+		if (!isLeftSame || !isRightSame) {
+			return false;
+		}
+		// If the branches are the same, then compare the values in the current nodes.
+		return T1.value == T2.value ? true : false; 
+	}
+}
