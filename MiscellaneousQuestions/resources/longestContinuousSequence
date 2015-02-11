@@ -1,0 +1,64 @@
+Largest Continuous Sequence
+
+This question can be a little tricky to figure out since it appears to be quite intuitive to figure out if you're
+just looking at a sequence of numbers.
+
+For example, the input - 1, 2, -4, 1, 3, -2, 3, -1 
+
+Without doing much hard thinking, it's easy to point out that the sequence in the middle {1, 3, -2, 3} results in the 
+largest sequence even though there is a -2 in that sequence.
+
+To come up with an algorithm for this can be confusing since it appears that we slowly need to build towards the answer.
+
+One way of coming up with the answer is to build all the combinations sequentially. 
+
+The largest sum can be comprised of a single number (e.g - 10, -1, -1, -1) or the entire input (1, 2, 3, 4). However since
+our input can be comprised of both, we cannot be certain that the largest sequence is the sequence that simply contains
+no negative numbers.
+
+So since the largest sum can be made of 1 number, we need to incrementally append the numbers after it in the sequence and 
+calculate its running total. We record it as our "current maximum" until we have gone through the entire input space.
+
+If we take the example input, we start with the first number and incrementally add the rest of the numbers in the sequence 
+and take note of the running total and whether the current sequence is current maximum.
+
+1 = 1 
+1 + 2 = 3
+1 + 2 - 4 = -1
+1 + 2 - 4 + 1 = 0
+1 + 2 - 4 + 1 + 3 = 3
+1 + 2 - 4 + 1 + 3 - 2 = 1
+1 + 2 - 4 + 1 + 3 - 2 + 3 = 4
+1 + 2 - 4 + 1 + 3 - 2 + 3 - 1 = 3;
+
+Each time we add the next number from the input to our running total, if it exceeds the previous maximum, it becomes the value
+for the largest sequence. Once we have calculated all the different sized sequences from the first number, we do the same thing
+but starting from the second value, we continue to do this until we've reached the end of the input, this ensures that we 
+cover all the sequences.
+
+You'll notice that by doing this, as we move along the input, the number of sequences per input value reduces by 1. 
+
+The algorithm for doing this should be worst case of O(n^2), since we iterate through the input in an outer loop and then a inner
+loop to create all the sequences of different lengths.
+
+Algorithm -
+
+int longestSequenceSum(int[] input) {
+	
+	int currentMaximum = Integer.MIN_VALUE; // Start with the smallest possible as being the min, any input should be larger.
+	
+	// Loop through the input and produce all the combinations
+	for (int i = 0; i < input.length; i++) {
+		int sum = input[i];
+		// Loop through the rest of the input to build the sequence 1 value at a time.
+		for (int j = i + 1; j < input.length - 1; j++) {
+			sum += input[j];
+			// Update the current max if the sum of the values in the current sequence is largest.
+			if (sum > currentMaximum) {
+				currentMaximum = sum;
+			}
+		}
+	}
+	return currentMaximum;
+}
+ 
