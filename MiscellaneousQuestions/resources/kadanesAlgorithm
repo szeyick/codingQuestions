@@ -1,0 +1,52 @@
+Kadanes Algorithm,
+
+This algorithm is a dynamic programming solution to find the maximum sum in a sub-array of integers. A requirement of the algorithm is that it does require at least one value in the input array to be a positive integer.
+
+It iterates through the input and keeps track of the maximumValueFoundSoFar found and the maximumValueEndingAtCurrentIndex.
+
+maximumValueEndingAtCurrentIndex - Contains the value if we stopped at the current index. 
+
+maximumValueFoundSoFar - Contains the largest sum that we have found so far in the input. It gets updated if the maximumValueEndingAtCurrentIndex is larger than the maximum.
+
+Pseudocode -
+
+int kadanesAlgorithm(int[] input) {
+  
+  // Initialise the current maximum and current end values 
+  maximumValueFoundSoFar = input[0];
+  maximumValueEndingAtCurrentIndex = input[0];
+  
+  // Loop through the rest of the input from 1 -> n
+  for (int i = 1; i < input.length; i++) {
+    int currentValue = maximumValueEndingAtCurrentIndex + input[i];
+    // Update the current sum if adding the current value to the previous value results in a larger value.
+    maximumValueEndingAtCurrentIndex = max(maximumValueEndingAtCurrentIndex, currentValue);
+    
+    // Update the maximum found if the sum is larger than previous.
+    maximumValueFoundSoFar = max(maximumValueFoundSoFar, maximumValueEndingAtCurrentIndex);
+    
+    // If adding the current value to the previous value results in it being less than 0, we reset the
+    // maximumValueEndingAtCurrentIndex. This implies that the sequence is broken.
+    if (currentValue < 0) {
+      maximuMValueEndingAtCurrentIndex = 0;
+    }
+  }
+  return maximumValueFoundSoFar;
+}
+
+// Return the larger of two values.
+int max (int previousValue, int currentValue) {
+  return previousValue > currentValue ? previousValue : currentValue;
+}
+
+Run Time -
+
+The algorithm runs in O(n) time and does not use any additional space other than the values to hold the temporary values. It only has a single loop that runs through the entire input (n - 1) which results in the linear time algorithm.
+
+Additions -
+
+Kadanes algorithm be default does not work if the entire input is made up of negative numbers. This is due to the conditional statement that breaks the sequence if the current calculated sum is less than 0. 
+
+The algorithm requires at least 1 value to be non-negative, as this results in it being the largest sequence (1 item) that contains the largest sum. If all the other values are negative, adding anything in the sequence will result in a lower value.
+
+To get around this problem, there can be an additional loop to iterate through the entire input to ensure that at least 1 value is positive, if all values are negative, we return the smallest negative value from the input and not run the algorithm. It will still result in a O(n) run-time as we would be performing two individual loops.
