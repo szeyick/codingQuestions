@@ -19,8 +19,8 @@ int kadanesAlgorithm(int[] input) {
   // Loop through the rest of the input from 1 -> n
   for (int i = 1; i < input.length; i++) {
     int currentValue = maximumValueEndingAtCurrentIndex + input[i];
-    // Update the current sum if adding the current value to the previous value results in a larger value.
-    maximumValueEndingAtCurrentIndex = max(maximumValueEndingAtCurrentIndex, currentValue);
+    // The maximum ending at the current index is the current value.
+    maximumValueEndingAtCurrentIndex = currentValue;
     
     // Update the maximum found if the sum is larger than previous.
     maximumValueFoundSoFar = max(maximumValueFoundSoFar, maximumValueEndingAtCurrentIndex);
