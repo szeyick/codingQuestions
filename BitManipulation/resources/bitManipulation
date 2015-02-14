@@ -1,0 +1,72 @@
+Bit Manipulation -
+
+Addition -
+
+When adding numbers together when doing bit manipulation we follow the rules -
+
+- 0 + 0 = 0
+- 0 + 1 = 1
+- 1 + 1 = 10 (It means that we carry the 1 across)
+- 10 + 1 = 11
+- 1 + 1 + 1 = 11
+
+For example -
+
+	 1010
+	+1111
+	-----
+	11001
+
+A few more examples -
+
+ 111	 101	 111
++110	+111	+111
+----	----	----
+1101	1100	1110
+
+Subtraction - 
+
+- 0 - 0 = 0
+- 1 - 0 = 1
+- 1 - 1 = 0
+- 10 - 1 = 0 (Where it is 0 - 1, but we borrow the 1 from the next digit)
+
+
+Multiplication -
+
+When multiplying numbers together when doing bit manipulation we follow the rules -
+
+1 * 1 = 1
+1 * 0 = 0
+0 * 1 = 0
+
+It follows a logical AND rule and we apply the same methods as when we're multiplying base 10 numbers.
+
+For example -
+
+	101
+	*11
+	---
+	101
+  +1010
+  -----
+   1111
+   
+Division -
+
+When dividing, we follow the same rules as if for division by base 10.
+
+For example - 111011/11
+
+	 010011
+     ______
+  11/111011
+     11
+     ------
+     00101
+       -11
+     -----
+        101 
+        -11
+     ------
+     	 10  
