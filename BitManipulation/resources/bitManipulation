@@ -8,6 +8,7 @@ When adding numbers together when doing bit manipulation we follow the rules -
 - 0 + 1 = 1
 - 1 + 1 = 10 (It means that we carry the 1 across)
 - 10 + 1 = 11
+- 10 + 0 = 1
 - 1 + 1 + 1 = 11
 
 For example -
@@ -29,7 +30,7 @@ Subtraction -
 - 0 - 0 = 0
 - 1 - 0 = 1
 - 1 - 1 = 0
-- 10 - 1 = 0 (Where it is 0 - 1, but we borrow the 1 from the next digit)
+- 10 - 1 = 1 (Where it is 0 - 1, but we borrow the 1 from the next digit)
 
 
 Multiplication -
@@ -39,6 +40,15 @@ When multiplying numbers together when doing bit manipulation we follow the rule
 1 * 1 = 1
 1 * 0 = 0
 0 * 1 = 0
+
+For example - 
+
+	 10101.101
+	- 1011.11
+	----------
+	  1001.111
+	  
+NOTE - When you borrow 1 from the left digit it becomes 10, so 10 - 1 will be 0, rather than 1 - 1 = 0.
 
 It follows a logical AND rule and we apply the same methods as when we're multiplying base 10 numbers.
 
@@ -69,4 +79,31 @@ For example - 111011/11
         101 
         -11
      ------
-     	 10  
+     	 10 	 
+     	 
+XOR (Exclusive OR)
+
+When performing an XOR comparison of two binary values, we directly compare the upper and lower values
+with the following rules -
+
+0 0 = 0
+0 1 = 1
+1 0 = 1
+1 1 = 0
+
+For example -
+
+	 1101
+	^0010
+	-----
+	 1111
+	 
+Left and Right Shift -
+
+>> represents a right shift. When we perform a right shift, it is the equivalent of adding 0's to the left.
+<< represents a left shift. When we perform a left shift, it is the equivalent of adding 0's to the right.
+
+For example -
+
+1100 >> 2 (This means to shift 1100 to the right by 2), which becomes 0011. The 0's that we shifted off are dropped.
+	 
