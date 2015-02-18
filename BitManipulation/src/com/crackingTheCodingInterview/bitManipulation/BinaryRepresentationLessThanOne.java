@@ -28,6 +28,9 @@ public class BinaryRepresentationLessThanOne {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		double value = 1 * (1 / Math.pow(2, 2));
+		System.out.println(value);
+		
 	}
 
 }
