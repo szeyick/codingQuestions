@@ -107,9 +107,9 @@ For example -
 
 1100 >> 2 (This means to shift 1100 to the right by 2), which becomes 0011. The 0's that we shifted off are dropped.
 
-Common Bit Tasks - (Get, Set, Clear and Update Bit)
+Bit Mask -
 
-Get Bit - 
-
+A bit mask will be a string that will contain all 1's, except for the positions that we want to remove which will
+contain 0's. 
 
 	 
