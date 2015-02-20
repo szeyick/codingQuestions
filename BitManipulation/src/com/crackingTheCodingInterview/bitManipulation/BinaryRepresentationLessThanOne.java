@@ -4,7 +4,7 @@ package com.crackingTheCodingInterview.bitManipulation;
  * The {@link BinaryRepresentationLessThanOne}
  * <p>
  * Given a real number between 0 and 1 (e.g 0.72) that is passed in as a
- * double, print the binrary representation. If the number cannot be represented
+ * double, print the binary representation. If the number cannot be represented
  * accurately in binary with at most 32 characters, print "Error".
  * <p>
  * When we're dealing with values less than 1, we have to multiply them by 1/2^n. 
@@ -18,16 +18,14 @@ package com.crackingTheCodingInterview.bitManipulation;
  * to replace then return "Error".
  * <p>
  * @author szeyick
- *
  */
 public class BinaryRepresentationLessThanOne {
 
 	/**
 	 * The program main.
-	 * @param args - Command line arguements.
+	 * @param args - Command line arguments.
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		double value = 1 * (1 / Math.pow(2, 2));
 		System.out.println(value);
 	}
