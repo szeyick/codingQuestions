@@ -1,0 +1,49 @@
+Getting next largest number with same number of 1's - 
+
+To get the next largest number with the same number of bits as our current value we need to follow the rule -
+
+1. One bit needs to be flipped from a 0 to 1 and another bit needs to be flipped from a 1 to 0.
+2. The value is going to be larger if and only if the bit we flip from 0 to 1 is to the left of the bit we flip from 1 to 0.
+3. The bit that we flip from 0 to 1, is the right most 0 that still has 1's to its right (in binary).
+
+4. We re-arrange all the bits to the right of P (The position of the right most 0).
+
+5. To re-arrange the bits from 0 -> P
+	- We clear all the values from 0 -> P to 0.
+	- We add C1 - 1, where C1 is the number of 1's to the right of P.
+	- We add C2 to the right of P, where C2 is the number of 0's to the right of P.
+	
+Example - 
+
+Input : 10110 = 20
+1: Flip the rightmost 0 that still has 1's to its left
+	Input : 11110 = 28
+	P = 3
+	C1 = 2
+	C0 = 1
+	
+	Clearing bits -
+	a = 1 << P; // Left shift 1, P positions so it becomes 1000
+	b = a - 1; // Subtract 1 from 1000 so it becomes 0111
+	mask = ~b; // Flip it so it becomes all 1's followed by 0's - 1000
+	n = n & mask; // Clears all bits to the right of P => n = 11000
+	
+	Add C1 - 1 ones -
+	a = 1 << (C1 - 1); // All 0's with a 1 at position C1-1 - 10
+	b = a - 1; // 0's with 1's at position 0 to C1 - 1 - 01
+	n = n | b; // insert 1's at positions 0 to C1 - 1; => n = 11001
+	
+Pseudo code
+
+getNext(value) {
+	
+	c1 = find number of 1's
+	c0 = find number of 0's // We can find the number of zero's by shifting
+	
+	return error if there is no larger number with same number of bits
+	
+	p = c0 + c1 // rightmost 0 is found by adding them both together
+	// Clear the bits
+	
+	// Add C1 - 1 ones.
+}
