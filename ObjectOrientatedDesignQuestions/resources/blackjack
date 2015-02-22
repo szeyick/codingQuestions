@@ -1,0 +1,76 @@
+Object Oriented Design - Black Jack
+
+Step 1 - Handle Ambiguity
+
+"Design the data structures for the generic deck of cards. Explain how you could subclass the data structures to
+implement blackjack."
+
+For the sake of argument, the deck of cards in this question will mean a normal 52 card deck of playing cards. In 
+reality, the cards could be any type of cards so it would be ideal to clarify this part if asked. 
+
+A game of blackjack is usually comprised of the following rules -
+
+- The first person (dealer or player) to reach 21 wins.
+- If a person (dealer or player) goes over 21, they bust and are out of the round.
+- Each person has a hand, that comprises of 2 cards.
+	- They can choose to hit or stay, where hit allows the dealer to give them another card and stay allows them
+	  to stay on their current value and passing the turn onto the next player.
+	- Each card adds to the total in the persons hand, if they bust at any stage, they are out of the game.
+- If the dealer busts, all the players win.
+
+Step 2 - Define the Core Objects
+
+The core objects in this are defined as -
+
+- Card : An individual playing card, contains a suite (hearts, clubs, diamonds, spades) and a value (1 -> 13 (Jack, Queen, King).
+- Deck : A standard deck of cards is comprised of 52 cards (hearts 1 -> 13, clubs 1 -> 13, diamonds 1 -> 13, spades 1 -> 13).
+- Dealer : A dealer manages the deck of cards, it also deals the cards to the players and itself.
+- Player : A player is responsible for playing their own hand and can hit or stay.
+- Suite : Defines the "type" of card, it being a heart, club, diamond or spade.
+- Blackjack : The main object that creates the dealer and players.
+
+Step 3 - Analyse Relationships 
+
+- Card : 
+	- A card has a value (ace -> king)
+	- A card has a suite type (hearts, clubs, diamonds, spades) 
+	
+- Deck :
+	- A deck is composed of 52 cards, it creates the individual cards that make up the deck.
+
+- Dealer :
+	- A dealer has a relationship with the player.
+	- A dealer can deal the cards to the player.
+	- A dealer is the object that controls the game.
+	
+- Blackjack :
+	- Is the games main, it creates the dealer and player objects.
+	
+Step 4 - Investigate Actions
+
+- Card :
+	- A card holds the value and suite.
+
+- Deck : A deck has the following operations
+	- It can deal out cards.
+	- It can be shuffled.
+	- It can put cards back into the deck.
+	- It is comprised of 52 Cards
+	- It knows which cards are out of its deck.
+	
+- Dealer : 
+	- A dealer managers the deck.
+	- A dealer can play a hand.
+	- A dealer deals a card to the player.
+	- A dealer controls the game, asks for cards back from the players.
+	- A dealer knows all the players that are playing the game.
+	- A dealer can hit/stay on their current hand.
+	- A dealer can bust if their hand totals over 21.
+	- A dealer wins if it hits 21.
+	
+- Player :
+	- A player can play a hand.
+	- A player can hit/stay on their current hand.
+	- A player can bust if their hand totals over 21.
+	- A player wins if it hits 21.
+	

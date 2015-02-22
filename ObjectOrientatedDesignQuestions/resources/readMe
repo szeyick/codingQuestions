@@ -1,0 +1,26 @@
+Object Oriented Design - 
+
+The idea behind these questions is to sketch out classes and methods to a problem. 
+
+How to approach OOD questions -
+
+Step 1 - Handle Ambiguity
+
+The questions about design are intentionally vague to test whether you make assumptions or will clarify the question.
+
+When asked about OOD questions, it is usually a good idea to ask who will be using it and how, perhaps to also ask 
+about the six W's - Who, What, When, Where, How and Why?
+
+Step 2 - Define the Core Objects
+
+After understanding the question and requirements, consider what the "core objects" are. 
+
+Step 3 - Analyse Relationships
+
+Determine how the objects are related and how they interact with each other. Which objects of the system are single instance
+objects and which objects can be instantiated multiple times. As you develop the relationships between the objects, you may
+need to re-clarify the requirements.
+
+Step 4 - Investigate Actions
+
+Identify the key actions that the objects must do to interact with one another. 
