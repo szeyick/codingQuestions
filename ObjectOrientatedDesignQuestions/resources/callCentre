@@ -29,4 +29,51 @@ Step 2 - Define Core Objects
 	- An employee can respond to a call.
 	- If an employee cannot respond to a call, then it can return the call back.
 	
--  
+- Manager :
+	- Extends the Employee class and implements the respond() method.
+	- A manager can respond to a call.
+	- If a manager cannot respond to a call, it can return the call back.
+	- The manager may have different additional functionality to a respondent.
+	
+- Director :
+	- Extends the Employee class and implements the respond() method.
+	- A director can respond to a call if it hasn't been responded to.
+	- If a director cannot respond to a call, the call is finished and unresponded to.
+	- The director may have additional functionality on top of the default implementation.
+	
+- Call :
+	- An object that represents the call that is passed to each of the employees.
+	- The call object state will be set to ANSWERED if one of the respondents answers.
+	- The initial object state will be UNANSWERED, if a respondent answers, it will change the state.
+	- The call object can contain other pieces of information, such as the problem etc (outside the scope)
+	
+- Call Center :
+	- The object that manages the employees.
+	- A call centre is comprised of a number of employees that can respond a call.
+	- The client (program main) interacts with the employees through the call centre object.
+	- The call centre acts as a mediator between the client and employees, routes the Call object to the correct
+	  employee.
+	  
+- Client :
+	- The program main, creates the call centre and all employee objects.
+	- The client creates the call object and passes it to the call center, the call centre routes the call to the
+	  correct respondent and returns the state to the client whether the call is answered or not.
+	  
+- Call State :
+	- The state of the call, a call has two states - UNANSWERED and ANSWERED.
+	- Initial state of all calls will be UNANSWERED.
+	  
+Step 3 - Analyse Relationships 
+
+Employee -
+	- Has a relationship with the respondent, acts as the abstract parent.
+	- Has a relationship with the manager, acts as the abstract parent.
+	- Has a relationship with the manager, acts as the abstract parent.
+	
+Call Centre -
+	- Manages all the employee objects.
+	- Acts as the mediator between the client and employee, passes the call object to the correct employee.
+	
+Client - 
+	- Creates the call object and passes the request onto the call centre.
+	
