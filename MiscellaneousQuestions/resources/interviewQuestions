@@ -1,0 +1,60 @@
+Interview Questions -
+
+This readMe contains a list of interview questions that I have been asked over time. Not all questions here 
+require a coded solution.
+
+Company A - 
+
+1. Given two arrays, find all the common elements that are found in both.
+
+	For example -
+		Array1 = [2,4,6,8];
+		Array2 = [6,8,10,12];
+		
+		Output = 6, 8
+		
+	Describe the solution and the worst case run time performance.
+	
+2. What are the key differences between Java and C++?
+
+3. How can you tell between a program that has been designed well and one that has been designed poorly?
+
+4. Describe in lamens terms, the questions to ask the stakeholder if they came to you with the following requirement -
+
+	Requirement - Storing a list of objects.
+	
+Company B - 
+
+1. What are the two types of inner classes in Java, what is an inner class?
+
+2. What is the difference between static methods and normal methods in Java?
+
+3. How do you ensure thread safety in Java?
+
+4. Determine whether a binary tree is a binary search tree -
+
+
+Company C -
+
+1. Implement a stack that will return to you the highest value in the stack.
+
+2. What is polymorphism?
+
+3. Given a binary tree, where the root nodes hold operands and the leaf nodes hold the values, come up with an algorithm
+   that returns the sums of all the numbers in the tree.
+   
+Company D -
+
+1. Design a distributed code compiler (Like Jenkins)
+
+2. Design a mobile phone address book
+
+3. Design a system that manages multiple inputs that distributes it to different places (Observer Pattern)
+
+Company E -
+
+1. Implement merge sort
+
+2. Design a restaurant booking system
+
+3. Given a sequence of 0's followed by a sequence of 1's, find the point in which they switch over.
