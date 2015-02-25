@@ -2,3 +2,10 @@ Jukebox -
 
 "Design a musical jukebox using object oriented principles"
 
+A jukebox has the following features -
+
+- CD's that it can be selected to be played.
+- A start button to begin the selected track.
+- A volume control.
+- A coin slot.
+
