@@ -9,3 +9,10 @@ A jukebox has the following features -
 - A volume control.
 - A coin slot.
 
+Step 1 - Handle Ambiguity
+
+- How old is this jukebox, is it a classical one or modern.
+- Would it take CD's or records, this mainly drives the name of the objects
+- Would the CD's be placed or ordered into categories.
+
+Step 2 - Define the core objects
