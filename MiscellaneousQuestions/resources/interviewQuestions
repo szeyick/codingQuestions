@@ -23,6 +23,20 @@ Company A -
 
 	Requirement - Storing a list of objects.
 	
+5. What types of testing do you use?
+	
+	- JUnit Testing : Utilising TDD methodologies to align requirements with design before implementation is started.
+	- GUI Testing : Test front end GUI components build on scripted user interactions.
+	- Regression Testing : Sanity testing on weekly builds before official release, delivered defect corrections and other 
+				component developments are tested against their written test cases.
+	- Performance Testing : Testing system stability, measuring process and thread usage, message response times, total up time.
+	- Integration Testing : Testing system capabilities against requirements across entire system (including sub-system)
+	- Code Coverage - Extension on JUnit Testing, ensuring that test coverage is at least 80% on all components and 100% on 
+			  safety critical components.
+	- A/B Testing : Testing defect corrections on patched and initial version.
+	- Factory and Site Testing : Deployment of stable releases to verification teams to test in factory and onsite, run through
+				     requirements and verification team test book to test the system.
+	
 Company B - 
 
 1. What are the two types of inner classes in Java, what is an inner class?
@@ -58,6 +72,7 @@ Company E -
 2. Design a restaurant booking system
 
 3. Given a sequence of 0's followed by a sequence of 1's, find the point in which they switch over.
+<<<<<<< HEAD
 
 Company F -
 
@@ -65,3 +80,5 @@ Company F -
 
 2. If you had a constant input stream, where each of the items within the stream were sorted. How would you write a merge
    function that would combine the streams and output the data in order.
+=======
+>>>>>>> origin/master
