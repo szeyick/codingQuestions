@@ -58,3 +58,10 @@ Company E -
 2. Design a restaurant booking system
 
 3. Given a sequence of 0's followed by a sequence of 1's, find the point in which they switch over.
+
+Company F -
+
+1. How would you write an comparator
+
+2. If you had a constant input stream, where each of the items within the stream were sorted. How would you write a merge
+   function that would combine the streams and output the data in order.
