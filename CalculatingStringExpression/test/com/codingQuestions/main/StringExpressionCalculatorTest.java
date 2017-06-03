@@ -20,7 +20,7 @@ public class StringExpressionCalculatorTest {
 	 * Test the calculator.
 	 */
 	@Test
-    public void multiplicationOfZeroIntegersShouldReturnZero() {
+    public void testStringExpressions() {
 		StringExpressionCalculator calculator = new StringExpressionCalculator();
 		
 		assertEquals("Expected values to be equal", 2, calculator.calculateExpression("1+1"));
