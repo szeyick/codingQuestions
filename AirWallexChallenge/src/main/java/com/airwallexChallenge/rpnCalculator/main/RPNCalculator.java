@@ -92,8 +92,7 @@ public class RPNCalculator {
 	 */
 	private void invokeOperand(String input) {
 		archiveCurrentStack();
-		Double value = Double.valueOf(input);
-		currentStack.push(value);
+		currentStack.push(Double.valueOf(input));
 	}
 	
 	/**

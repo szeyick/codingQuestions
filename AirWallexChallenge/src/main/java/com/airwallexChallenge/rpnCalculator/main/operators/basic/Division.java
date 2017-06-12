@@ -1,7 +1,5 @@
 package com.airwallexChallenge.rpnCalculator.main.operators.basic;
 
-import java.util.Stack;
-
 /**
  * The Division.
  * <p>
@@ -15,14 +13,6 @@ import java.util.Stack;
  * @author szeyick
  */
 public class Division extends BasicOperation {
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean performOperation(Stack<Double> valueStack) {
-		return super.performOperation(valueStack);
-	}
 
 	/**
 	 * {@inheritDoc} 
