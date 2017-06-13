@@ -1,7 +1,6 @@
 package com.airwallexChallenge.rpnCalculator.main.operators.basic;
 
 import java.util.Deque;
-import java.util.Stack;
 
 import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
 

@@ -13,16 +13,16 @@ package com.airwallexChallenge.rpnCalculator.main.util;
 public final class NumberUtils {
 
 	/**
-    * The maximum length of the formatted output.
-    */
-   private static final int MAX_FORMAT_LENGTH = 10;
+	 * The maximum length of the formatted output.
+	 */
+	private static final int MAX_FORMAT_LENGTH = 10;
 
-   /**
-    * Private constructor.
-    */
-   private NumberUtils() {
-       // Do nothing.
-   }
+	/**
+	 * Private constructor.
+	 */
+	private NumberUtils() {
+		// Do nothing.
+	}
 
 	/**
 	 * This method is responsible for formatting a given value to at most 10 decimal
@@ -67,15 +67,15 @@ public final class NumberUtils {
 	 * the output string, <code>false</code> otherwise.
 	 */
 	private static boolean shortenPrecision(int currentIndex, String mantissaString, int currentValue) {
-	    boolean shortenPrecison = true;
-       for (int nextIndex = currentIndex + 1; nextIndex < mantissaString.length(); nextIndex++) {
-           int nextValue = Character.getNumericValue(mantissaString.charAt(nextIndex));
-           if (currentValue != nextValue) {
-               shortenPrecison = false;
-               break;
-           }
-       }
-	    return shortenPrecison;
+		boolean shortenPrecison = true;
+		for (int nextIndex = currentIndex + 1; nextIndex < mantissaString.length(); nextIndex++) {
+			int nextValue = Character.getNumericValue(mantissaString.charAt(nextIndex));
+			if (currentValue != nextValue) {
+				shortenPrecison = false;
+				break;
+			}
+		}
+		return shortenPrecison;
 	}
 
 	/**

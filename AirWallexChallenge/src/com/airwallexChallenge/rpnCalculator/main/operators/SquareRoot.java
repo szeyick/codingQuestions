@@ -1,7 +1,6 @@
 package com.airwallexChallenge.rpnCalculator.main.operators;
 
 import java.util.Deque;
-import java.util.Stack;
 
 /**
  * The SquareRoot.

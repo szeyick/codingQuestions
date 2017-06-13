@@ -3,7 +3,6 @@ package com.airwallexChallenge.rpnCalculator.main;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.EnumMap;
-import java.util.LinkedList;
 
 import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
 import com.airwallexChallenge.rpnCalculator.main.operators.OperatorEnum;
@@ -126,7 +125,7 @@ public class RPNCalculator {
 	 * Archive the contents of the current stack.
 	 */
 	private void archiveCurrentStack() {
-	    Deque<Double> backup = new LinkedList<>();
+	    Deque<Double> backup = new ArrayDeque<>();
 	    for (Double value : currentStack) {
 	        backup.addLast(value);
         }
@@ -191,7 +190,7 @@ public class RPNCalculator {
 				currentStack = archivedStacks.pollLast();
 			}
 			else {
-				currentStack = new LinkedList<>();
+				currentStack = new ArrayDeque<>();
 			}
 			return true;
 		}
