@@ -13,10 +13,17 @@ package com.airwallexChallenge.rpnCalculator.main.util;
 public final class NumberUtils {
 
 	/**
-	 * The maximum length of the formatted output.
-	 */
-	private static final int MAX_FORMAT_LENGTH = 10;
-	
+    * The maximum length of the formatted output.
+    */
+   private static final int MAX_FORMAT_LENGTH = 10;
+
+   /**
+    * Private constructor.
+    */
+   private NumberUtils() {
+       // Do nothing.
+   }
+
 	/**
 	 * This method is responsible for formatting a given value to at most 10 decimal
 	 * places. The output value is shortened further if there is no loss in precision
@@ -40,25 +47,37 @@ public final class NumberUtils {
 			// decimal value.
 			int currentIndex = 0;
 			while (currentIndex < MAX_FORMAT_LENGTH && currentIndex < mantissaString.length()) {
-				boolean append = false;
 				int currentValue = Character.getNumericValue(mantissaString.charAt(currentIndex));
-				for (int nextIndex = currentIndex + 1; nextIndex < mantissaString.length(); nextIndex++) {
-					int nextValue = Character.getNumericValue(mantissaString.charAt(nextIndex));
-					if (currentValue != nextValue) {
-						append = true;
-						break;
-					}
-				}
 				builder.append(currentValue);
-				if (!append) {
+				boolean shortenPrecison = shortenPrecision(currentIndex, mantissaString, currentValue);
+				if (shortenPrecison) {
 					break;
 				}
 				currentIndex++;
-			}			
+			}
 		}
 		return builder.toString();
 	}
-	
+
+	/**
+	 * Evaluate if the current value should mark the end of the mantissa precision.
+	 * @param currentIndex - The current index of the value to evaluate.
+	 * @param mantissaString - The decimal string.
+	 * @return <code>true</code> if this value is the last value that should be added to
+	 * the output string, <code>false</code> otherwise.
+	 */
+	private static boolean shortenPrecision(int currentIndex, String mantissaString, int currentValue) {
+	    boolean shortenPrecison = true;
+       for (int nextIndex = currentIndex + 1; nextIndex < mantissaString.length(); nextIndex++) {
+           int nextValue = Character.getNumericValue(mantissaString.charAt(nextIndex));
+           if (currentValue != nextValue) {
+               shortenPrecison = false;
+               break;
+           }
+       }
+	    return shortenPrecison;
+	}
+
 	/**
 	 * Evaluate if the input string is a numeric value. A numeric value can be a decimal or negative
 	 * but aside from the '-' sign and '.' decimal point, it must contain all numeric values.
@@ -73,14 +92,13 @@ public final class NumberUtils {
 		}
 		else {
 			for (int i = 0; i < inputString.length(); i++) {
-				if (Character.isDigit(inputString.charAt(i)) 
-						|| (inputString.charAt(i) == '.') 
+				if (!Character.isDigit(inputString.charAt(i))
+						|| (inputString.charAt(i) == '.')
 						|| (i == 0 && inputString.charAt(0) == '-')) {
-					isValue = true;
-					continue;
+					isValue = false;
+					break;
 				}
-				isValue = false;
-				break;
+				isValue = true;
 			}
 		}
 		return isValue;

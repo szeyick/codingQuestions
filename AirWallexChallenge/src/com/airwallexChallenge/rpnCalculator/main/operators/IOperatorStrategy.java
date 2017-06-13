@@ -1,6 +1,6 @@
 package com.airwallexChallenge.rpnCalculator.main.operators;
 
-import java.util.Stack;
+import java.util.Deque;
 
 /**
  * The IOperatorStrategy.
@@ -16,6 +16,6 @@ public interface IOperatorStrategy {
 	 * @param valueStack - The stack of values to perform the operation on.
 	 * @return <code>true</code> if the operation is completed, <code>false</code> otherwise.
 	 */
-	boolean performOperation(Stack<Double> valueStack);
+	boolean performOperation(Deque<Double> valueStack);
 	
 }

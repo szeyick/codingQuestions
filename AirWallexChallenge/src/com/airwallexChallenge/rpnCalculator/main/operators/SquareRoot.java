@@ -1,5 +1,6 @@
 package com.airwallexChallenge.rpnCalculator.main.operators;
 
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -19,12 +20,12 @@ public class SquareRoot implements IOperatorStrategy {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean performOperation(Stack<Double> valueStack) {
+	public boolean performOperation(Deque<Double> valueStack) {
 		boolean operationPerformed = false;
-		if (valueStack.size() > 0) {
-			Double value = valueStack.pop();
+		if (!valueStack.isEmpty()) {
+			Double value = valueStack.pollLast();
 			
-			valueStack.push(Math.sqrt(value));
+			valueStack.addLast(Math.sqrt(value));
 			operationPerformed = true;
 		}
 		return operationPerformed;

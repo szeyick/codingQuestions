@@ -1,8 +1,9 @@
 package com.airwallexChallenge.rpnCalculator.main;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.EnumMap;
+import java.util.LinkedList;
 
 import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
 import com.airwallexChallenge.rpnCalculator.main.operators.OperatorEnum;
@@ -24,29 +25,30 @@ import com.airwallexChallenge.rpnCalculator.main.util.NumberUtils;
 public class RPNCalculator {
 
 	/**
-	 * A stack containing the current values held by the calculator.
+	 * A queue that is used to represent the stack. Used to maintain the
+	 * current values held by the calculator.
 	 */
-	private Stack<Double> currentStack;
+	private Deque<Double> currentStack;
 
 	/**
-	 * A stack containing the previous stack states that have been held by
-	 * the calculator. This is used by the calculator to save the state of the
-	 * current stack before a new operation is performed on it. In addition it
-	 * is used by the undo operation to restore the previous stack state.
+	 * A queue that is used to represent the previous stack states that have been
+	 * held by the calculator. Used to save the current state of the stack before a
+	 * new operation is performed on it. Also used by the undo operation to restore previous
+	 * stack states.
 	 */
-	private Stack<Stack<Double>> archivedStacks;
+	private Deque<Deque<Double>> archivedStacks;
 
 	/**
 	 * A map of available operations that the calculator can process.
 	 */
-	private Map<OperatorEnum, IOperatorStrategy> strategyMap;
+	private EnumMap<OperatorEnum, IOperatorStrategy> strategyMap;
 
 	/**
 	 * Constructor.
 	 */
 	public RPNCalculator() {
-		currentStack = new Stack<>();
-		archivedStacks = new Stack<>();
+	    currentStack = new ArrayDeque<>();
+		archivedStacks = new ArrayDeque<>();
 		initStrategies();
 	}
 
@@ -55,7 +57,7 @@ public class RPNCalculator {
 	 * calculator.
 	 */
 	private void initStrategies() {
-		strategyMap = new HashMap<>();
+		strategyMap = new EnumMap<>(OperatorEnum.class);
 		strategyMap.put(OperatorEnum.ADD, new Addition());
 		strategyMap.put(OperatorEnum.SUBTRACT, new Subtraction());
 		strategyMap.put(OperatorEnum.MULTIPLY, new Multiplication());
@@ -76,7 +78,9 @@ public class RPNCalculator {
 			String input = inputList[currentIndex];
 			OperatorEnum operator = OperatorEnum.convertStringToOperator(input);
 			if (!OperatorEnum.NOT_OPERATOR.equals(operator)) {
-				invokeOperator(currentIndex, operator, space, input);
+				if (!invokeOperator(currentIndex, operator, space, input)) {
+					break;
+				}
 			}
 			else if (NumberUtils.isNumericValue(input)) {
 				invokeOperand(input);
@@ -85,16 +89,16 @@ public class RPNCalculator {
 		}
 		printStackContents();
 	}
-	
+
 	/**
 	 * Push the operand onto the stack.
 	 * @param input - The input value.
 	 */
 	private void invokeOperand(String input) {
 		archiveCurrentStack();
-		currentStack.push(Double.valueOf(input));
+		currentStack.addLast(Double.valueOf(input));
 	}
-	
+
 	/**
 	 * Perform an operation using the operators. Preserve the current state of the stack if the
 	 * operator is not "undo".
@@ -108,7 +112,7 @@ public class RPNCalculator {
 		if (!OperatorEnum.UNDO.equals(operator)) {
 			archiveCurrentStack();
 		}
-		
+
 		IOperatorStrategy strategy = strategyMap.get(operator);
 		boolean operationPerformed = strategy.performOperation(currentStack);
 		if (!operationPerformed) {
@@ -122,11 +126,11 @@ public class RPNCalculator {
 	 * Archive the contents of the current stack.
 	 */
 	private void archiveCurrentStack() {
-		Stack<Double> backup = new Stack<>();
-		for (int i = 0; i < currentStack.size(); i++) {
-			backup.push(currentStack.get(i));
-		}
-		archivedStacks.push(backup);
+	    Deque<Double> backup = new LinkedList<>();
+	    for (Double value : currentStack) {
+	        backup.addLast(value);
+        }
+		archivedStacks.addLast(backup);
 	}
 
 	/**
@@ -134,9 +138,9 @@ public class RPNCalculator {
 	 */
 	private void printStackContents() {
 		System.out.print("stack: ");
-		for (int i = 0; i < currentStack.size(); i++) {
-			String valueToPrint = NumberUtils.formatNumber(currentStack.get(i));
-			System.out.print(valueToPrint + " ");
+		for (Double value : currentStack) {
+		    String valueToPrint = NumberUtils.formatNumber(value);
+            System.out.print(valueToPrint + " ");
 		}
 		System.out.println();
 	}
@@ -158,7 +162,7 @@ public class RPNCalculator {
 		 * @return <code>true</code> as the stack current stack can always be cleared.
 		 */
 		@Override
-		public boolean performOperation(Stack<Double> valueStack) {
+		public boolean performOperation(Deque<Double> valueStack) {
 			valueStack.clear();
 			return true;
 		}
@@ -182,12 +186,12 @@ public class RPNCalculator {
 		 * @return <code>true</code> as a stack is always returned.
 		 */
 		@Override
-		public boolean performOperation(Stack<Double> valueStack) {
+		public boolean performOperation(Deque<Double> valueStack) {
 			if (!archivedStacks.isEmpty()) {
-				currentStack = archivedStacks.pop();
+				currentStack = archivedStacks.pollLast();
 			}
 			else {
-				currentStack = new Stack<>();
+				currentStack = new LinkedList<>();
 			}
 			return true;
 		}

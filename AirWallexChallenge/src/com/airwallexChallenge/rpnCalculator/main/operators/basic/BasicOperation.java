@@ -1,5 +1,6 @@
 package com.airwallexChallenge.rpnCalculator.main.operators.basic;
 
+import java.util.Deque;
 import java.util.Stack;
 
 import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
@@ -27,20 +28,20 @@ public abstract class BasicOperation implements IOperatorStrategy {
 	 * @return the computed total based off child implementing class.
 	 */
 	protected abstract Double computeSum(Double firstValue, Double secondValue);
-	
+
 	/**
 	 * @param valueStack - The stack of input values.
 	 * @return <code>true</code> if the operation is performed, <code>false</code> otherwise.
 	 */
 	@Override
-	public boolean performOperation(Stack<Double> valueStack) {
+	public boolean performOperation(Deque<Double> valueStack) {
 		boolean operationPerformed = false;
 		if (valueStack.size() >= 2) {
 			// Pop the top two values off the stack and perform an operation.
-			Double firstValue = valueStack.pop();
-			Double secondValue = valueStack.pop();
-			
-			valueStack.push(computeSum(firstValue, secondValue));
+			Double firstValue = valueStack.pollLast();
+			Double secondValue = valueStack.pollLast();
+
+			valueStack.addLast(computeSum(firstValue, secondValue));
 			operationPerformed = true;
 		}
 		return operationPerformed;
