@@ -14,7 +14,7 @@
     <modules>
         <module>RPNCalculator</module>
         <module>CalculatingStringExpression</module>
-        <module>CycleDetection</module>
+        <module>LinkedListCycleDetection</module>
         <module>RansomNote</module>
     </modules>
 </project>
