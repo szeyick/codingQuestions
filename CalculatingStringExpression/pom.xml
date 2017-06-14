@@ -33,7 +33,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.airwallexChallenge.rpnCalculator.ApplicationMain</mainClass>
+							<mainClass>com.codingQuestions.main.CalculateStringExpression</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
