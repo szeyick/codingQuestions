@@ -1,4 +1,4 @@
-package com.airwallexChallenge.rpnCalculator.main.operators.basic;
+package com.airwallexChallenge.rpnCalculator.operators.basic;
 
 /**
  * The Addition.

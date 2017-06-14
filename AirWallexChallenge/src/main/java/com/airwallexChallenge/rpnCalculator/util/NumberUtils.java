@@ -1,4 +1,4 @@
-package com.airwallexChallenge.rpnCalculator.main.util;
+package com.airwallexChallenge.rpnCalculator.util;
 
 /**
  * The NumberUtils.
@@ -21,7 +21,7 @@ public final class NumberUtils {
 	 * Private constructor.
 	 */
 	private NumberUtils() {
-		// Do nothing.
+		// To prevent instantiation.
 	}
 
 	/**

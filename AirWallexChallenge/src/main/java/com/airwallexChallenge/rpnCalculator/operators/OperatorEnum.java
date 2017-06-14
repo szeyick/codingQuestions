@@ -1,4 +1,4 @@
-package com.airwallexChallenge.rpnCalculator.main.operators;
+package com.airwallexChallenge.rpnCalculator.operators;
 
 /**
  * The OperatorEnum.

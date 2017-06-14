@@ -1,4 +1,4 @@
-package com.airwallexChallenge.rpnCalculator.main;
+package com.airwallexChallenge.rpnCalculator;
 
 import java.util.Scanner;
 

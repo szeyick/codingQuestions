@@ -1,4 +1,4 @@
-package com.airwallexChallenge.rpnCalculator.main.operators.basic;
+package com.airwallexChallenge.rpnCalculator.operators.basic;
 
 import java.util.Deque;
 
@@ -6,7 +6,7 @@ import java.util.Deque;
  * The Division.
  * <p>
  * This class is responsible for performing the division operation for a given
- * stack of values. 
+ * stack of values.
  * <p>
  * <b>Warning: </b>Because values are popped off the stack, the first value
  * popped off the stack is the denominator and the second value popped off the
@@ -18,13 +18,13 @@ import java.util.Deque;
 public class Division extends BasicOperation {
 
 	/**
-	 * {@inheritDoc} 
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected Double computeSum(Double firstValue, Double secondValue) {
 			return secondValue / firstValue;
 	}
-	
+
 	/**
 	 * @param valueStack - The stack of input values.
 	 * @return <code>true</code> if the operation is performed, <code>false</code> otherwise.

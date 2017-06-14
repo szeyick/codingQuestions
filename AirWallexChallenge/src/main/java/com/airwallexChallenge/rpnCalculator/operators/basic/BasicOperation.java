@@ -1,8 +1,8 @@
-package com.airwallexChallenge.rpnCalculator.main.operators.basic;
+package com.airwallexChallenge.rpnCalculator.operators.basic;
 
 import java.util.Deque;
 
-import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
+import com.airwallexChallenge.rpnCalculator.operators.IOperatorStrategy;
 
 /**
  * The BasicOperation.

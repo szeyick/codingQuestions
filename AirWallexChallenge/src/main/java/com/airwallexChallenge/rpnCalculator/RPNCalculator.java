@@ -1,23 +1,23 @@
-package com.airwallexChallenge.rpnCalculator.main;
+package com.airwallexChallenge.rpnCalculator;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.EnumMap;
 
-import com.airwallexChallenge.rpnCalculator.main.operators.IOperatorStrategy;
-import com.airwallexChallenge.rpnCalculator.main.operators.OperatorEnum;
-import com.airwallexChallenge.rpnCalculator.main.operators.SquareRoot;
-import com.airwallexChallenge.rpnCalculator.main.operators.basic.Addition;
-import com.airwallexChallenge.rpnCalculator.main.operators.basic.Division;
-import com.airwallexChallenge.rpnCalculator.main.operators.basic.Multiplication;
-import com.airwallexChallenge.rpnCalculator.main.operators.basic.Subtraction;
-import com.airwallexChallenge.rpnCalculator.main.util.NumberUtils;
+import com.airwallexChallenge.rpnCalculator.operators.IOperatorStrategy;
+import com.airwallexChallenge.rpnCalculator.operators.OperatorEnum;
+import com.airwallexChallenge.rpnCalculator.operators.SquareRoot;
+import com.airwallexChallenge.rpnCalculator.operators.basic.Addition;
+import com.airwallexChallenge.rpnCalculator.operators.basic.Division;
+import com.airwallexChallenge.rpnCalculator.operators.basic.Multiplication;
+import com.airwallexChallenge.rpnCalculator.operators.basic.Subtraction;
+import com.airwallexChallenge.rpnCalculator.util.NumberUtils;
 
 /**
  * The RPNCalculator.
  * <p>
  * This class provides the functionality of an RPN calculator that is wrapped
- * within the class. 
+ * within the class.
  * <p>
  * @author szeyick
  */
