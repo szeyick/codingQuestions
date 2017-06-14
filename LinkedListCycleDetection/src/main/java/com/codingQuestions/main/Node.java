@@ -13,12 +13,12 @@ public class Node {
 	/**
 	 * A reference to the next node in the list.
 	 */
-	public Node next;
+	private Node next;
 	
 	/**
 	 * A reference to the data stored in the node.
 	 */
-	public int data;
+	private int data;
 	
 	/**
 	 * Constructor.
@@ -26,5 +26,26 @@ public class Node {
 	 */
 	public Node(int data) {
 		this.data = data;
+	}
+	
+	/**
+	 * @return the next node in the list.
+	 */
+	public Node getNext() {
+		return next;
+	}
+	
+	/**
+	 * @param next - The next node to connect to.
+	 */
+	public void setNext(Node next) {
+		this.next = next;
+	}
+	
+	/**
+	 * @return the data held by this node.
+	 */
+	public int getData() {
+		return data;
 	}
 }

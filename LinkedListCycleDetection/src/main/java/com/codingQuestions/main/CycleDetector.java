@@ -23,7 +23,7 @@ public class CycleDetector {
 		Node tortoise = head;
 		Node hare= head;
 		while (hare != null) {
-			hare = hare.next;
+			hare = hare.getNext();
 			if (hare == null) {
 				break;
 			}
@@ -31,8 +31,8 @@ public class CycleDetector {
 				hasCycle = true;
 				break;
 			}
-			hare = hare.next;
-			tortoise = tortoise.next;
+			hare = hare.getNext();
+			tortoise = tortoise.getNext();
 		}
 		return hasCycle;
 	}

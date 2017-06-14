@@ -30,10 +30,10 @@ public class CycleDetectorMain {
 		Node three = new Node(3);
 		Node four = new Node(4);
 		
-		one.next = two;
-		two.next = three;
-		three.next = four;
-		four.next = two;
+		one.setNext(two);
+		two.setNext(three);
+		three.setNext(four);
+		four.setNext(two);
 		return one;
 	}
 }
