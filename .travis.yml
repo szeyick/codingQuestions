@@ -1,1 +1,16 @@
 language: java
+sudo: false
+install: true
+addons:
+  sonarqube:
+    organization: szeyick-github
+    token:
+      secure: yl0Y6UfgcAA0O1lj4byMw+0CJKINSzKYECYpquTgA6MbY/g0MdGOQDKVQBzwwjq+kLVOVxcI8KhzwmTdtzmCYg+7s6tASuwzAQgQIdhm1aM5tK9CX1bBNxFztv7EszGvYAV7pmgTYYy5Rty70u7ufhgnj4eSOg9mU8ygMzNSpsagaFJbFdV5c02Dq0yFPqRUyOdbbi3SWj7KWACMtI+NojsM/BVx1AGt9yAQsAibfQ0vj7Zs+B76Cb0rWxXzriO+rGB6PBQyuPTK0a30Ks6+MWTGNl1yIjkCqJR9q59bzuvU+YpC0EXGJ4kYM5aqyNe11jsOl8ZMZ8KrPIWF2RW9WcRzxqd4TaNW76GEn8UFuG0Lck2FNku2HYzuyABI/irJGdJp8cz07lYfrg45YAmLhgbiFt6iaaTu/qZhF3Mccqgv0eyuKrTE8EJZifNzhXxvr5wTs13hrzd+8c8oavC5hfaN8uPz4yUG9CtdNmphi74Q89wEXoiJ7PiYrdxd2wv+9+XsFWG+JqWtac6yo2X9I2tE8YPiZVqhsE60O+2BOgcZJkznvB6wRYYS6tshQj3QVIw1UjPz8qzO5qC96hN3WqrUPaCzDkYtBe4xmnMCzmG00AKHsxqFWsxkTZi4oASP6HQQFxlppG9TwPXbkvRnShVNdS1UMj9Pwqd8w9GqkWj0=
+jdk:
+- oraclejdk8
+script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+  - "$HOME/.sonar/cache"
