@@ -1,12 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.codingQuestions.main</groupId>
-  <artifactId>ArrayLeftShifting</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>ArrayLeftShifting</name>
-  <description>Code to perform a left shift of array elements.</description>
-  
-  <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.crackingTheCodingInterview.bitManipulation</groupId>
+	<artifactId>BitManipulation</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Bit Manipulation</name>
+	<description>Examples of Bit Manipulation</description>
+
+	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -32,7 +33,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.codingQuestions.LeftShiftMain</mainClass>
+							<mainClass>com.crackingTheCodingInterview.bitManipulation.BitManipulationMain</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

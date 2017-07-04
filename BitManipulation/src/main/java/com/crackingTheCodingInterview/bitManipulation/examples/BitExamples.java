@@ -13,7 +13,7 @@ public class BitExamples {
 	 * The program main.
 	 * @param args - The command line arguments.
 	 */
-	public static void main(String[] args) {
+	public static void demo() {
 		// Return whether there is a 1 bit at a position.
 		System.out.println("Is there a bit at position 2 - " + getBitAt(4, 2));
 		System.out.println("Is there a bit at position 12 - " + getBitAt(4, 12));

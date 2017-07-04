@@ -1,4 +1,4 @@
-package com.crackingTheCodingInterview.bitManipulation;
+package com.crackingTheCodingInterview.bitManipulation.examples;
 
 /**
  * The {@link NextLargestBit}
@@ -14,7 +14,7 @@ public class NextLargestBit {
 	 * The program main.
 	 * @param args - Command line arguments.
 	 */
-	public static void main(String[] args) {
+	public static void demo() {
 		System.out.println(getNextLargest(22));
 	}
 	

@@ -1,4 +1,4 @@
-package com.crackingTheCodingInterview.bitManipulation;
+package com.crackingTheCodingInterview.bitManipulation.examples;
 
 /**
  * The {@link BinaryRepresentationLessThanOne}
@@ -25,7 +25,7 @@ public class BinaryRepresentationLessThanOne {
 	 * The program main.
 	 * @param args - Command line arguments.
 	 */
-	public static void main(String[] args) {
+	public static void demo() {
 		// Binary representation of 0.75
 		System.out.println("Binary representation of 0.75 is  - " + decimalToBinary(0.75));
 		

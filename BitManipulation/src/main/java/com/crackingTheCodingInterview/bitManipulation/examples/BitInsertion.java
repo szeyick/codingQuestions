@@ -1,4 +1,4 @@
-package com.crackingTheCodingInterview.bitManipulation;
+package com.crackingTheCodingInterview.bitManipulation.examples;
 
 /**
  * The {@link BitInsertion}
@@ -29,7 +29,7 @@ public class BitInsertion {
 	 * The program main.
 	 * @param args - Command line arguments.
 	 */
-	public static void main(String[] args) {
+	public static void demo() {
 		int updateBit = updateBits(227, 28, 2, 4);
 		System.out.print("The updated bit is - " + updateBit);
 	}
