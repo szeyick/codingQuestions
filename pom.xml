@@ -16,5 +16,7 @@
         <module>CalculatingStringExpression</module>
         <module>LinkedListCycleDetection</module>
         <module>RansomNote</module>
+        <module>BitManipulation</module>
+        <module>LeftShiftingArrayElements</module>
     </modules>
 </project>
