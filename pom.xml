@@ -18,5 +18,6 @@
         <module>RansomNote</module>
         <module>BitManipulation</module>
         <module>LeftShiftingArrayElements</module>
+        <module>MakingAnagrams</module>             
     </modules>
 </project>
