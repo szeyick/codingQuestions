@@ -18,6 +18,7 @@
         <module>RansomNote</module>
         <module>BitManipulation</module>
         <module>LeftShiftingArrayElements</module>
-        <module>MakingAnagrams</module>             
+        <module>MakingAnagrams</module>    
+        <module>BinarySearchQuestions</module>             
     </modules>
 </project>
