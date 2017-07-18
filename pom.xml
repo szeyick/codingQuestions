@@ -19,6 +19,7 @@
         <module>BitManipulation</module>
         <module>LeftShiftingArrayElements</module>
         <module>MakingAnagrams</module>    
-        <module>BinarySearchQuestions</module>             
+        <module>BinarySearchQuestions</module> 
+        <module>AppleStock</module>          
     </modules>
 </project>
