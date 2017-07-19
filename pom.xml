@@ -20,6 +20,9 @@
         <module>LeftShiftingArrayElements</module>
         <module>MakingAnagrams</module>    
         <module>BinarySearchQuestions</module> 
-        <module>AppleStock</module>          
+        <module>AppleStock</module>     
+        <module>InflightEntertainment</module>     
+        <module>MergeSortedArrays</module>     
+        <module>RotationPoint</module>     
     </modules>
 </project>
