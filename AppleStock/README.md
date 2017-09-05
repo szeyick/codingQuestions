@@ -28,6 +28,7 @@ Naive Solution: O(n^2)
 
 Start at the buy price index, and iterate through all the values that come after it and find the max profit. Do that for each index, till you get to the end.
 
+~~~
 getMaxProfit(stockPricesYesterday)
 	maxProfit = Integer.MIN_VALUE
 	loop (stockPricesYesterday)
@@ -39,12 +40,14 @@ getMaxProfit(stockPricesYesterday)
 				maxProfit = profit
 	return maxProfit
 
+~~~
 Because we need to iterate through the input array twice, the runtime would be O(n^2). 
 
 Optimal Solution:
 
 The optimal solution would be to use a greedy algorithm, which means to find the local optimum first, using that as the best solution before continuing on for the rest of the input.
 
+~~~
 getMaxProfit(stockPricesYesterday)
 	maxProfit = Integer.MIN_VALUE
 	lowestBuyPrice = stockPricesYesterday[0];
@@ -56,6 +59,7 @@ getMaxProfit(stockPricesYesterday)
 		if (currentSalePrice < lowestBuyPrice)
 			lowestBuyPrice = currentSalePrice
 	return maxProfit
+~~~
 
 This solution can be done in O(n) linear time. It will be similar to the naive solution, except that we don't need to do the inner loop. The idea for this solution is to keep track of the lowest value currently found. This will be the buy price as we want the lowest value as the buy price.
 
